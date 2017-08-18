@@ -3,22 +3,11 @@
   <h1>
     Welcome to {{title}}!
   </h1>
-  <h1 [style.background-color]="bgColor">
-    Welcome to <span [innerText]="title"></span> (attribute mode)!
-  </h1>
-  <img width="300" src="{{ helloWorldImgSrc }}">
-  <img width="300" [src]="helloWorldImgSrc">
 </div>
 
 <div>
-  <button [disabled]="buttonDisabled">Am I disabled??</button>
-  <a (click)="toggleBtn()">Toggle button</a>
-</div>
-
-
-<div>
-  <input type="text" (input)="inputValue = $event.target.value" [value]="inputValue"><br />
-  You typed: {{inputValue}} (<a (click)="clearInputValue()">Clear</a>)
+  <input type="tel" placeholder="What's your phone number?" #phoneNumber ><br/>
+  <button (click)="call(phoneNumber.value)">Call</button>
 </div>
 
 <router-outlet></router-outlet>
