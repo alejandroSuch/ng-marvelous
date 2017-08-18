@@ -1,18 +1,20 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HeroesService} from './heroes.service';
 
 @Component({
   selector: 'marvel-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'marvel';
+  characters = [];
 
-  characters = [
-    {name: 'Spider-Man', hasTights: true},
-    {name: 'Hulk', hasTights: false},
-    {name: 'Thor', hasTights: false},
-    {name: 'Captain America', hasTights: true},
-    {name: 'Deadpool', hasTights: false}
-  ];
+  constructor(private heroesService: HeroesService) {
+  }
+
+  ngOnInit(): void {
+    this.characters = this.heroesService.getCharacters();
+    console.log('characters lodaded');
+  }
 }
