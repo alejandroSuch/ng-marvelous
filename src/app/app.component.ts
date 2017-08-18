@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'marvel-root',
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'marvel';
 
-  characters = ['Spider-Man', 'Hulk', 'Thor', 'Captain America', 'Iron Man', 'Deadpool'];
+  characters = [
+    {name: 'Spider-Man', hasTights: true},
+    {name: 'Hulk', hasTights: false},
+    {name: 'Thor', hasTights: false},
+    {name: 'Captain America', hasTights: true},
+    {name: 'Deadpool', hasTights: false}
+  ];
 }
