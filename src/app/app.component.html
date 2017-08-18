@@ -5,9 +5,10 @@
   </h1>
 </div>
 
-<div>
-  <input type="tel" placeholder="What's your phone number?" #phoneNumber ><br/>
-  <button (click)="call(phoneNumber.value)">Call</button>
-</div>
+<ul>
+  <li *ngFor="let character of characters; let i = index;">
+    {{ i + 1 }} - {{ character }}
+  </li>
+</ul>
 
 <router-outlet></router-outlet>

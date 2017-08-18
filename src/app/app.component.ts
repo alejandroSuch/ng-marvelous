@@ -8,7 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'marvel';
 
-  call(number) {
-    alert(`Calling ${number}...`);
-  }
+  characters = ['Spider-Man', 'Hulk', 'Thor', 'Captain America', 'Iron Man', 'Deadpool'];
 }
