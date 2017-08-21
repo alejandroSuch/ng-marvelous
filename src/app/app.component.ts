@@ -17,4 +17,8 @@ export class AppComponent implements OnInit {
     this.characters = this.heroesService.getCharacters();
     console.log('characters lodaded');
   }
+
+  addHero(hero) {
+    this.heroesService.addCharacter(hero);
+  }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class HeroesService {
@@ -10,10 +10,15 @@ export class HeroesService {
     {name: 'Deadpool', hasTights: false}
   ];
 
-  constructor() { }
+  constructor() {
+  }
 
   getCharacters() {
     return this.characters;
+  }
+
+  addCharacter(character: any) {
+    this.characters.push(character);
   }
 
 }

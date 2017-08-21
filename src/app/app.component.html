@@ -5,6 +5,7 @@
   </h1>
 </div>
 
+<marvel-hero-form (onHeroAdded)="addHero($event)"></marvel-hero-form>
 <marvel-heroes-list [heroesList]="characters"></marvel-heroes-list>
 
 <router-outlet></router-outlet>
