@@ -5,10 +5,6 @@
   </h1>
 </div>
 
-<ul>
-  <li *ngFor="let character of characters; let i = index;">
-    {{ i + 1 }} - {{ character.name }} has<span *ngIf="!character.hasTights">n't</span> tights
-  </li>
-</ul>
+<marvel-heroes-list [heroesList]="characters"></marvel-heroes-list>
 
 <router-outlet></router-outlet>
