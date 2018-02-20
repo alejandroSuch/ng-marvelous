@@ -1,4 +1,7 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  Component, ElementRef, EventEmitter, OnInit, Output,
+  ViewChild, Renderer2
+} from '@angular/core';
 
 @Component({
   selector: 'marvel-hero-form',
@@ -12,7 +15,7 @@ export class HeroFormComponent implements OnInit {
   @ViewChild('heroName') heroName: ElementRef;
   @ViewChild('hasTights') hasTights: ElementRef;
 
-  constructor() {
+  constructor(private renderer: Renderer2) {
   }
 
   ngOnInit() {
@@ -21,8 +24,8 @@ export class HeroFormComponent implements OnInit {
   addHero(name, hasTights) {
     this.onHeroAdded.emit({name, hasTights});
 
-    this.heroName.nativeElement.value = '';
-    this.hasTights.nativeElement.checked = false;
+    this.renderer.setProperty(this.heroName.nativeElement, 'value', '');
+    this.renderer.setProperty(this.hasTights.nativeElement, 'checked', false);
   }
 
 }
