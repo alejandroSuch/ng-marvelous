@@ -1,5 +1,5 @@
 <div>
   <input type="text" #heroName placeholder="Hero name"> <br/>
   <label><input type="checkbox" #hasTights /> has tights</label> <br/>
-  <button (click)="addHero(heroName.value, hasTights.value)">Add hero</button>
+  <button (click)="addHero(heroName.value, hasTights.checked)">Add hero</button>
 </div>
