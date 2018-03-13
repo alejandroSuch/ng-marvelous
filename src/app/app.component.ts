@@ -14,11 +14,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.characters = this.heroesService.getCharacters();
-    console.log('characters lodaded');
+    this.characters = this.heroesService.getCharacters(); 
   }
 
   addHero(hero) {
-    this.heroesService.addCharacter(hero);
+    this.characters = this.heroesService.addCharacter(hero);
   }
 }

@@ -18,7 +18,8 @@ export class HeroesService {
   }
 
   addCharacter(character: any) {
-    this.characters.push(character);
+    this.characters = [...this.characters, character];
+    return this.characters;
   }
 
 }
