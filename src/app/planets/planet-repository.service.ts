@@ -13,7 +13,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class PlanetRepositoryService {
-  private baseUrl = 'https://swapi.co/api/planets/';
+  private baseUrl = '/api/planets/';
   private planetsUrl = `${this.baseUrl}?page=`
 
   constructor(private http: HttpClient) { }
