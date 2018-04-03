@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let planet of planets">
+  <li *ngFor="let planet of planets$ | async">
     {{ planet.name }}
   </li>
 </ul>
