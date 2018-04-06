@@ -1,6 +1,6 @@
-import { PlanetRepositoryService } from './../../planet-repository.service';
+import { PlanetRepositoryService } from '../planet-repository.service';
+import { Planet } from './../planet';
 import { Component, OnInit } from '@angular/core';
-import { Planet } from '../../planet';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ['./list.component.less']
 })
 export class ListComponent implements OnInit {
-  private planets$: Observable<Planet[]>;
+  public planets$: Observable<Planet[]>;
 
   constructor(private planetRepository: PlanetRepositoryService) { }
 

@@ -2,7 +2,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { ListComponent } from './planets/components/list/list.component'
+import { ListComponent } from './planets/list/list.component'
 
 const routes: Routes = [
   {

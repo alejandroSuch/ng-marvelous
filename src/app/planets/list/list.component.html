@@ -1,0 +1,10 @@
+<div fxLayout="row wrap" fxLayoutAlign="center start" fxLayoutGap="5px">
+  <sw-planets-list-item 
+    *ngFor="let planet of planets$ | async"
+    [planet]="planet"
+    fxFlex="90%"
+    fxFlex.gt-sm="45%"
+    fxFlex.gt-md="20%"
+    >
+  </sw-planets-list-item>
+</div>
