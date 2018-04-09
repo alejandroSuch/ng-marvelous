@@ -11,6 +11,10 @@ describe('PopulationPipe', () => {
     expect(pipe.transform(undefined)).toBe('???');
   })
 
+  it('default value', () => {
+    expect(pipe.transform(undefined, 'desconocido')).toBe('desconocido');
+  })
+
   it('as is', () => {
     expect(pipe.transform('999')).toBe('999');
   });

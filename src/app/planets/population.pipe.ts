@@ -5,11 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PopulationPipe implements PipeTransform {
 
-  transform(value: string, args?: any): string {
+  transform(value: string, defaultValue: string = '???'): string {
     const val = +value;
 
     if(isNaN(val)) {
-      return '???';
+      return defaultValue;
     }
 
     return this.abbrNum(val, 1);
