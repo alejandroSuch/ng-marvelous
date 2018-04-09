@@ -1,6 +1,10 @@
-<div fxLayout="row wrap" fxLayoutAlign="center start" fxLayoutGap="5px">
+<div 
+  *ngIf="planets$ | async as planets; else loading"
+  fxLayout="row wrap" 
+  fxLayoutAlign="center start" 
+  fxLayoutGap="5px">
   <sw-planets-list-item 
-    *ngFor="let planet of planets$ | async"
+    *ngFor="let planet of planets"
     [planet]="planet"
     fxFlex="90%"
     fxFlex.gt-sm="45%"
@@ -8,3 +12,9 @@
     >
   </sw-planets-list-item>
 </div>
+
+<ng-template #loading>
+  <div class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
