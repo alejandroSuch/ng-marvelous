@@ -1,5 +1,5 @@
 <div 
-  *ngIf="planets$ | async as planets; else loading"
+  *ngIf="loaded; else loading"
   fxLayout="row wrap" 
   fxLayoutAlign="center start" 
   fxLayoutGap="5px">
@@ -9,8 +9,17 @@
     fxFlex="90%"
     fxFlex.gt-sm="45%"
     fxFlex.gt-md="20%"
-    >
+  >
   </sw-planets-list-item>
+
+  <mat-paginator
+    fxFlex="100"
+    pageSize="10"
+    [length]="count$|async"
+    [pageIndex]="currentPage"
+    showFirstLastButtons="true"
+    (page)="onPageChanged($event)">
+  </mat-paginator>
 </div>
 
 <ng-template #loading>
