@@ -1,3 +1,6 @@
+import { CountResolver } from './planets/list/count-resolver.service';
+import { PlanetsResolver } from './planets/list/planets-resolver.service';
+import { PlanetComponent } from './planets/planet/planet.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,7 +14,12 @@ const routes: Routes = [
   },
   {
     path: 'planets',
-    component: ListComponent
+    component: ListComponent,
+    resolve: {
+      planets: PlanetsResolver,
+      count: CountResolver
+    },
+    runGuardsAndResolvers: 'always'
   },
   {
     path: '',

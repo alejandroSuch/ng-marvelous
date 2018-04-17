@@ -15,8 +15,8 @@
   <mat-paginator
     fxFlex="100"
     pageSize="10"
-    [length]="count$|async"
-    [pageIndex]="currentPage"
+    [length]="count"
+    [pageIndex]="currentPageIndex"
     showFirstLastButtons="true"
     (page)="onPageChanged($event)">
   </mat-paginator>

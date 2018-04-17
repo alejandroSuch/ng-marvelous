@@ -16,11 +16,10 @@ import 'rxjs/add/operator/delay'
   styleUrls: ['./list.component.less']
 })
 export class ListComponent implements OnInit {
-  public planets$: Observable<Planet[]>;
-  public planets:Planet[] = null;
-  public count$: Observable<number>;
-  public currentPage: number = 0;
-  public loaded: boolean;
+  public currentPageIndex: number = 0;
+  public planets:Planet[];
+  public count: number;
+  public loaded: boolean = false;
 
   constructor(
     private planetRepository: PlanetRepositoryService,
@@ -29,25 +28,15 @@ export class ListComponent implements OnInit {
   ) { 
   }
 
-  ngOnInit() {
-    this.count$ = this.planetRepository.count();
-
-    const getPageNumber = paramMap => {
-      if(paramMap.has('page')) {
-        return +paramMap.get('page');
-      } else {
-        return 1;
-      }
-    };
-
-    this.route.queryParamMap
-      .do(() => this.loaded = false)
-      .map(getPageNumber)
-      .do(page => this.currentPage = page - 1)
-      .switchMap(page => this.planetRepository.getPage(page))
-      .map(planets => this.planets = planets)
-      .do(() => this.loaded = true)
-      .subscribe();
+  ngOnInit() { 
+    this
+      .route.data
+      .subscribe((data: { planets: { list: Planet[], page: number }, count: number }) => {
+        this.count = data.count;
+        this.planets = data.planets.list;
+        this.currentPageIndex = data.planets.page - 1;
+        this.loaded = true;
+      });
   }
 
   onPageChanged({ pageIndex }: PageEvent) { 
@@ -56,5 +45,6 @@ export class ListComponent implements OnInit {
     };
 
     this.router.navigate([], extras);
+    this.loaded = false;
   }
 }
