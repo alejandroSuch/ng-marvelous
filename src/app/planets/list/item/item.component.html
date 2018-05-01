@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card>
     <mat-card-header>
       <mat-card-title>{{ planet.name }}</mat-card-title>
       <mat-card-subtitle>Habitantes: {{ planet.population | population:'desconocido' }}</mat-card-subtitle>
@@ -7,6 +7,6 @@
       <p>{{ planet.terrain }}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary">+ INFO</button>
+      <button mat-raised-button color="primary" (click)="planetClicked()">+ INFO</button>
     </mat-card-actions>
   </mat-card>

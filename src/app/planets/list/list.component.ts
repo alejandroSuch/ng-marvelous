@@ -47,4 +47,12 @@ export class ListComponent implements OnInit {
     this.router.navigate([], extras);
     this.loaded = false;
   }
+
+  goToPlanet(id: number):void {
+    const extras: NavigationExtras = { relativeTo: this.route, preserveQueryParams: true };
+    this.router.navigate([id], extras);
+
+    // OPCION 2 - REQUIERE MAYOR CONOCIMIENTO DE TODAS LAS RUTAS
+    // this.router.navigate(['/planets', id]);
+  }
 }

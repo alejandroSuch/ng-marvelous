@@ -38,4 +38,10 @@ export class PlanetRepositoryService {
 
     return this.http.get(url).map(data => data['count']);
   }
+
+  getPlanet(id: number): Observable<Planet> {
+    const url = `${this.baseUrl}${id}`;
+
+    return <Observable<Planet>>this.http.get(url)
+  }
 }

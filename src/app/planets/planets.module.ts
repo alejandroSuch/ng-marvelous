@@ -10,6 +10,7 @@ import { CustomMaterialModule } from '../CustomMaterialModule';
 import { PlanetComponent } from '../planets/planet/planet.component';
 import { PlanetsResolver } from '../planets/list/planets-resolver.service';
 import { CountResolver } from '../planets/list/count-resolver.service';
+import { PlanetResolver } from '../planets/planet/planet-resolver.service';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { CountResolver } from '../planets/list/count-resolver.service';
   ],
   declarations: [ListComponent, ItemComponent, PopulationPipe, PlanetComponent],
   exports: [ListComponent, PlanetComponent],
-  providers: [PlanetRepositoryService, PlanetsResolver, CountResolver]
+  providers: [PlanetRepositoryService, PlanetsResolver, CountResolver, PlanetResolver]
 })
 export class PlanetsModule { }

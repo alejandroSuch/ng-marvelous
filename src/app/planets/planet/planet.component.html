@@ -1,0 +1,27 @@
+<div 
+  fxLayout="row wrap" 
+  fxLayoutAlign="center start" 
+  fxLayoutGap="5px">
+  <mat-card
+    fxFlex="90%"
+    fxFlex.gt-sm="45%"
+  >
+    <mat-card-header>
+      <mat-card-title>{{ planet.name }}</mat-card-title>
+      <mat-card-subtitle>Habitantes: {{ planet.population | population:'desconocido' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li><b>Terreno: </b>{{ planet.terrain }}</li>
+        <li><b>Periodo de rotación: </b>{{ planet.rotation_period }} horas</li>
+        <li><b>Periodo orbital: </b>{{ planet.orbital_period }} días</li>
+        <li><b>Diámetro: </b>{{ planet.diameter }} km.</li>
+        <li><b>Clima: </b>{{ planet.climate }}</li>
+        <li><b>Gravedad: </b>{{ planet.gravity }}</li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="back()">Volver</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

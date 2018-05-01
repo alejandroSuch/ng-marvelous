@@ -1,3 +1,4 @@
+import { PlanetResolver } from './planets/planet/planet-resolver.service';
 import { CountResolver } from './planets/list/count-resolver.service';
 import { PlanetsResolver } from './planets/list/planets-resolver.service';
 import { PlanetComponent } from './planets/planet/planet.component';
@@ -14,12 +15,25 @@ const routes: Routes = [
   },
   {
     path: 'planets',
-    component: ListComponent,
-    resolve: {
-      planets: PlanetsResolver,
-      count: CountResolver
-    },
-    runGuardsAndResolvers: 'always'
+    children: [
+      {
+        path: ':id',
+        component: PlanetComponent,
+        resolve: {
+          planet: PlanetResolver
+        },
+        runGuardsAndResolvers: 'paramsChange'
+      },
+      {
+        path: '',
+        component: ListComponent,
+        resolve: {
+          planets: PlanetsResolver,
+          count: CountResolver
+        },
+        runGuardsAndResolvers: 'always'
+      }
+    ]
   },
   {
     path: '',
