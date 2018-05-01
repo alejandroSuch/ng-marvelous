@@ -22,11 +22,11 @@ import { PlanetsModule } from './planets/planets.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     FlexLayoutModule,
     CustomMaterialModule,
     MoviesModule,
-    PlanetsModule
+    PlanetsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

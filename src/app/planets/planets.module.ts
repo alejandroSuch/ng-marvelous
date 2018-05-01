@@ -1,3 +1,4 @@
+import { PlanetsRoutingModule } from './planets-rouing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +18,8 @@ import { PlanetResolver } from '../planets/planet/planet-resolver.service';
     CommonModule,
     HttpClientModule,
     CustomMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    PlanetsRoutingModule
   ],
   declarations: [ListComponent, ItemComponent, PopulationPipe, PlanetComponent],
   exports: [ListComponent, PlanetComponent],

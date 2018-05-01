@@ -1,39 +1,12 @@
-import { PlanetResolver } from './planets/planet/planet-resolver.service';
-import { CountResolver } from './planets/list/count-resolver.service';
-import { PlanetsResolver } from './planets/list/planets-resolver.service';
-import { PlanetComponent } from './planets/planet/planet.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { ListComponent } from './planets/list/list.component'
 
 const routes: Routes = [
   {
     path: 'welcome',
     component: WelcomeComponent
-  },
-  {
-    path: 'planets',
-    children: [
-      {
-        path: ':id',
-        component: PlanetComponent,
-        resolve: {
-          planet: PlanetResolver
-        },
-        runGuardsAndResolvers: 'paramsChange'
-      },
-      {
-        path: '',
-        component: ListComponent,
-        resolve: {
-          planets: PlanetsResolver,
-          count: CountResolver
-        },
-        runGuardsAndResolvers: 'always'
-      }
-    ]
   },
   {
     path: '',
